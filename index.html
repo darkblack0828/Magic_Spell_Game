@@ -112,11 +112,13 @@
       // 題庫是否有效
       const hasData = Object.values(DATA).some(map => Object.keys(map).length > 0);
       assetsReady = hasData;
-      document.getElementById("loading").textContent = assetsReady ? "題庫載入完成！" : "⚠️ 題庫載入失敗，請確認題庫.json 格式";
       if (assetsReady) {
-        document.getElementById("settings").style.display = "block";
-        document.getElementById("startBtn").style.display = "inline-block";
-      }
+          document.getElementById("loading").style.display = "none";
+          document.getElementById("settings").style.display = "block";
+          document.getElementById("startBtn").style.display = "inline-block";
+    } else {
+          document.getElementById("loading").textContent = "⚠️ 題庫載入失敗，請確認題庫.json 格式";
+    }
     }
     loadAssets();
 
